@@ -33,12 +33,28 @@ async function getParams(args) {
           c = parseInt(value)
           break
 
+        case '--count':
+          c = parseInt(value)
+          break
+
         case '-s':
           s = parseInt(value)
           break
 
+        case '--seconds':
+          s = parseInt(value)
+          break
+
         case '-p':
-          if (','.includes(',')) {
+          if (value.includes(',')) {
+            const [x, y] = value.trim().split(',')
+            px = parseInt(x)
+            py = parseInt(y)
+          }
+          break
+
+        case '--position':
+          if (value.includes(',')) {
             const [x, y] = value.trim().split(',')
             px = parseInt(x)
             py = parseInt(y)
@@ -46,8 +62,7 @@ async function getParams(args) {
           break
 
         default:
-          console.log(`Unknown argument: ${tag}`)
-          break
+          throw Error(`Unknown argument: ${tag}`)
       }
     }
   }
@@ -82,7 +97,7 @@ async function main() {
     console.log(`第 ${i} 次`)
   }
 
-  console.log(`echo 执行了 ${c} 次, 每次等待 ${s} 秒`)
+  console.log(`共执行了 ${c} 次, 每次等待 ${s} 秒`)
 }
 
 main()
