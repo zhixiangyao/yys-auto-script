@@ -81,9 +81,6 @@ async function main() {
     let x = px - halfWX + generatorRandomNumber(wX)
     let y = py - halfWY + generatorRandomNumber(wY)
 
-    x = x < 0 ? 0 : x
-    y = y < 0 ? 0 : y
-
     const position = `${x},${y}`
 
     await $`cliclick c:${position}`
