@@ -1,0 +1,26 @@
+{
+  "name": "yys-auto-script",
+  "version": "0.1.0",
+  "description": "yys automate task script",
+  "main": "index.js",
+  "scripts": {
+    "jue-xing-cai-liao": "zx ./scripts/yys-juexingcailiao-auto.mjs",
+    "get-mouse-point": "cliclick p",
+    "test": "zx ./tests/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhixiangyao/yys-auto-script.git"
+  },
+  "keywords": [
+    "yys",
+    "script"
+  ],
+  "author": "zhixiangyao",
+  "bugs": {
+    "url": "https://github.com/zhixiangyao/yys-auto-script/issues"
+  },
+  "dependencies": {
+    "zx": "^7.0.0"
+  }
+}

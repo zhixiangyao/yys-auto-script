@@ -8,37 +8,68 @@
   - Homebrew
     - cliclick
     - Node.js
-      - zx
   - 阴阳师
 
 # 安装
 
-前置条件需安装 homebrew
+前置条件需安装 homebrew 和 node
 
 ```bash
 homebrew install cliclick # 获取鼠标坐标 和 模拟鼠标点击的工具
 homebrew install node # JavaScript 运行时环境
+```
+
+克隆项目 or 下载项目
+
+```bash
+cd ~/xxx/yys-auto-script
 
 # 安装好 node 后，通过 npm(node package manager) 安装 zx 脚本工具
-npm install --global zx
+npm install
 # or
-yarn global add zx
+yarn
 # or
-pnpm install -g zx
+pnpm install
 ```
 
 ## 运行
 
-- yys-juexingcailiao-auto.mjs 觉醒材料
+- `npm run jue-xing-cai-liao` 觉醒材料
 
-  ```bash
-  # 先把鼠标放到 “开始” 获取鼠标坐标
-  cliclick p
-  ```
+```js
+/**
+ * @typedef {'seconds' | 'position' | 'log'}    TrackType
+ * @typedef {`${number},${number}`}    Position
+ *
+ * @typedef {Object}                   Track
+ * @property {TrackType}               type               类型
+ * @property {number=}                 seconds            秒
+ * @property {Position=}               position           鼠标坐标
+ *
+ * @typedef {Object}                   Configs
+ * @property {number}                  wX                 每次点击 X 轴浮动范围
+ * @property {number}                  wY                 每次点击 Y 轴浮动范围
+ * @property {Position}                containerPosition  容器的位置
+ * @property {number}                  count              次数
+ * @property {Array<Track>}            trackList          轨迹列表
+ */
 
-  ```bash
-  # -c 是 count 次数
-  # -s 是 seconds 是延迟时间
-  # -p 是 position 坐标
-  zx ~/xxx/yys-juexingcailiao-auto.mjs -c=1000 -s=21 -p=793,570
-  ```
+/**
+ * @type {Configs}
+ */
+const configs = {
+  wX: 6, 
+  wY: 6,
+  containerPosition: '1287,43',
+  count: 1000,
+  trackList: [
+    { type: 'position', position: '1604,521' },
+    { type: 'seconds', seconds: 21 },
+    { type: 'position', position: '1604,521' },
+    { type: 'position', position: '1604,521' },
+    { type: 'seconds', seconds: 3 },
+    { type: 'log' },
+  ],
+}
+```
+
