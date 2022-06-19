@@ -2,7 +2,6 @@
   "name": "yys-auto-script",
   "version": "0.1.0",
   "description": "yys automate task script",
-  "main": "index.js",
   "scripts": {
     "jue-xing-cai-liao": "zx ./scripts/yys-juexingcailiao-auto.mjs",
     "get-mouse-point": "cliclick p",
