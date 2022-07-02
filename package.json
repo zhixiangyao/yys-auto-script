@@ -20,6 +20,6 @@
     "url": "https://github.com/zhixiangyao/yys-auto-script/issues"
   },
   "dependencies": {
-    "zx": "^7.0.0"
+    "zx": "^7.0.6"
   }
 }
